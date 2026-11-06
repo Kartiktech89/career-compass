@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Career Compass student learning and placement readiness planner">
+  <title>Career Compass | Student Roadmap Planner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="Career Compass home">
+      <span class="brand-mark">P</span>
+      <span>Career <span class="brand-accent">Compass</span></span>
+    </a>
+    <span class="header-note">Your next opportunity starts here</span>
+  </header>
+
+  <main class="shell">
+    <section class="intro">
+      <p class="eyebrow">PERSONALIZED CAREER PLANNER</p>
+      <h1>Build your path to <span>placement-ready.</span></h1>
+      <p class="intro-copy">Answer five quick questions and get a practical learning roadmap designed around your goals, skills, and pace.</p>
+    </section>
+
+    <nav class="progress" aria-label="Application progress">
+      <div class="progress-line"><span id="progressBar"></span></div>
+      <ol id="progressSteps">
+        <li class="progress-step active" data-step="1"><span>01</span><strong>Profile</strong></li>
+        <li class="progress-step" data-step="2"><span>02</span><strong>Communication</strong></li>
+        <li class="progress-step" data-step="3"><span>03</span><strong>Aptitude</strong></li>
+        <li class="progress-step" data-step="4"><span>04</span><strong>Domain</strong></li>
+        <li class="progress-step" data-step="5"><span>05</span><strong>Your plan</strong></li>
+      </ol>
+    </nav>
+
+    <div id="statusMessage" class="status-message" role="status" aria-live="polite"></div>
+
+    <form id="plannerForm" novalidate>
+      <section class="step-panel active" data-panel="1">
+        <div class="panel-heading">
+          <div class="step-icon">01</div>
+          <div><p class="eyebrow">LET'S GET TO KNOW YOU</p><h2>Tell us about yourself</h2><p>We’ll use this to make your recommendations more relevant.</p></div>
+        </div>
+        <div class="form-grid">
+          <label class="field full-width">Full name <span class="required">*</span>
+            <input id="fullName" name="fullName" type="text" placeholder="e.g. Ananya Sharma" autocomplete="name" required>
+            <small class="error" data-error-for="fullName"></small>
+          </label>
+          <label class="field">CGPA <span class="required">*</span>
+            <div class="input-suffix"><input id="cgpa" name="cgpa" type="number" min="0" max="10" step="0.01" placeholder="0.00" required><span>/ 10</span></div>
+            <small class="helper">Enter a value between 0.00 and 10.00</small>
+            <small class="error" data-error-for="cgpa"></small>
+          </label>
+          <label class="field">Branch
+            <select id="branch" name="branch">
+              <option value="">Select your branch</option><option>Computer Science Engineering</option><option>Artificial Intelligence and Machine Learning</option><option>Information Science</option><option>Electronics and Communication</option><option>Electrical Engineering</option><option>Mechanical Engineering</option><option>Civil Engineering</option><option>Other</option>
+            </select>
+          </label>
+          <fieldset class="field full-width">
+            <legend>Programming skills <span class="required">*</span></legend>
+            <p class="helper">Select everything you have worked with.</p>
+            <div class="check-grid">
+              <label class="choice"><input type="checkbox" name="programmingSkills" value="C"><span>C</span></label>
+              <label class="choice"><input type="checkbox" name="programmingSkills" value="C++"><span>C++</span></label>
+              <label class="choice"><input type="checkbox" name="programmingSkills" value="Java"><span>Java</span></label>
+              <label class="choice"><input type="checkbox" name="programmingSkills" value="Python"><span>Python</span></label>
+              <label class="choice"><input type="checkbox" name="programmingSkills" value="JavaScript"><span>JavaScript</span></label>
+              <label class="choice"><input type="checkbox" name="programmingSkills" value="HTML & CSS"><span>HTML &amp; CSS</span></label>
+              <label class="choice"><input type="checkbox" name="programmingSkills" value="SQL"><span>SQL</span></label>
+              <label class="choice"><input type="checkbox" name="programmingSkills" value="Other"><span>Other</span></label>
+            </div>
+            <small class="error" data-error-for="programmingSkills"></small>
+          </fieldset>
+          <label class="field">Overall programming level
+            <select id="programmingLevel" name="programmingLevel">
+              <option>Beginner</option><option>Basic</option><option>Intermediate</option><option>Advanced</option>
+            </select>
+          </label>
+          <label class="field">Projects completed
+            <input id="projectsCount" name="projectsCount" type="number" min="0" max="20" step="1" value="0">
+            <small class="helper">Optional · 0 to 20 projects</small>
+          </label>
+          <label class="field">Internships completed
+            <input id="internshipsCount" name="internshipsCount" type="number" min="0" max="10" step="1" value="0">
+            <small class="helper">Optional · 0 to 10 internships</small>
+          </label>
+        </div>
+        <div class="actions"><button class="button primary" type="button" data-next="1">Save &amp; continue <span>→</span></button></div>
+      </section>
+
+      <section class="step-panel" data-panel="2">
+        <div class="panel-heading"><div class="step-icon">02</div><div><p class="eyebrow">COMMUNICATION SKILLS</p><h2>How do you express yourself?</h2><p>There’s no right answer. Honest inputs create a better plan.</p></div></div>
+        <fieldset class="question"><legend>What is your communication skills level? <span class="required">*</span></legend><div class="radio-grid">
+          <label class="radio-card"><input type="radio" name="communicationLevel" value="Beginner" required><span><b>Beginner</b><small>I am building confidence</small></span></label>
+          <label class="radio-card"><input type="radio" name="communicationLevel" value="Basic"><span><b>Basic</b><small>I can share simple ideas</small></span></label>
+          <label class="radio-card"><input type="radio" name="communicationLevel" value="Intermediate"><span><b>Intermediate</b><small>I manage most situations</small></span></label>
+          <label class="radio-card"><input type="radio" name="communicationLevel" value="Advanced"><span><b>Advanced</b><small>I speak with confidence</small></span></label>
+          <label class="radio-card"><input type="radio" name="communicationLevel" value="Fluent"><span><b>Fluent</b><small>I communicate naturally</small></span></label>
+        </div><small class="error" data-error-for="communicationLevel"></small></fieldset>
+        <fieldset class="question"><legend>How would you rate your English? <span class="required">*</span></legend><div class="radio-grid english-grid">
+          <label class="radio-card"><input type="radio" name="englishLevel" value="I'll manage my English" required><span><b>I’ll manage my English</b><small>I'm comfortable learning as I go</small></span></label>
+          <label class="radio-card"><input type="radio" name="englishLevel" value="Basic"><span><b>Basic</b><small>I understand simple conversations</small></span></label>
+          <label class="radio-card"><input type="radio" name="englishLevel" value="Good"><span><b>Good</b><small>I can discuss most topics</small></span></label>
+          <label class="radio-card"><input type="radio" name="englishLevel" value="Fluent"><span><b>Fluent</b><small>I communicate naturally</small></span></label>
+        </div><small class="error" data-error-for="englishLevel"></small></fieldset>
+        <div class="detail-grid">
+          <fieldset class="question"><legend>Presentation confidence</legend><div class="segmented compact">
+            <label><input type="radio" name="presentation" value="Beginner" checked><span>Beginner</span></label><label><input type="radio" name="presentation" value="Intermediate"><span>Intermediate</span></label><label><input type="radio" name="presentation" value="Advanced"><span>Advanced</span></label>
+          </div></fieldset>
+          <fieldset class="question"><legend>Group discussion confidence</legend><div class="segmented compact">
+            <label><input type="radio" name="groupDiscussion" value="Beginner" checked><span>Beginner</span></label><label><input type="radio" name="groupDiscussion" value="Intermediate"><span>Intermediate</span></label><label><input type="radio" name="groupDiscussion" value="Advanced"><span>Advanced</span></label>
+          </div></fieldset>
+          <fieldset class="question"><legend>Interview confidence</legend><div class="segmented compact">
+            <label><input type="radio" name="interviewConfidence" value="Beginner" checked><span>Beginner</span></label><label><input type="radio" name="interviewConfidence" value="Intermediate"><span>Intermediate</span></label><label><input type="radio" name="interviewConfidence" value="Advanced"><span>Advanced</span></label>
+          </div></fieldset>
+        </div>
+        <div class="actions"><button class="button secondary" type="button" data-back="2">← Back</button><button class="button primary" type="button" data-next="2">Save &amp; continue <span>→</span></button></div>
+      </section>
+
+      <section class="step-panel" data-panel="3">
+        <div class="panel-heading"><div class="step-icon">03</div><div><p class="eyebrow">APTITUDE SKILLS</p><h2>Rate your aptitude skills</h2><p>This helps us set the right pace and practice intensity.</p></div></div>
+        <fieldset class="question"><legend>Overall aptitude level <span class="required">*</span></legend><div class="radio-grid">
+          <label class="radio-card"><input type="radio" name="aptitudeLevel" value="Beginner" required><span><b>Beginner</b><small>I am starting out</small></span></label>
+          <label class="radio-card"><input type="radio" name="aptitudeLevel" value="Basic"><span><b>Basic</b><small>I solve simple questions</small></span></label>
+          <label class="radio-card"><input type="radio" name="aptitudeLevel" value="Intermediate"><span><b>Intermediate</b><small>I improve with practice</small></span></label>
+          <label class="radio-card"><input type="radio" name="aptitudeLevel" value="Advanced"><span><b>Advanced</b><small>I feel confident</small></span></label>
+        </div><small class="error" data-error-for="aptitudeLevel"></small></fieldset>
+        <div class="skill-rating-list">
+          <fieldset class="skill-rating"><legend><span class="skill-number">01</span>Logical Reasoning <span class="required">*</span></legend><div class="segmented">
+            <label><input type="radio" name="logicalReasoning" value="Beginner" required><span>Beginner</span></label><label><input type="radio" name="logicalReasoning" value="Intermediate"><span>Intermediate</span></label><label><input type="radio" name="logicalReasoning" value="Advanced"><span>Advanced</span></label>
+          </div><small class="error" data-error-for="logicalReasoning"></small></fieldset>
+          <fieldset class="skill-rating"><legend><span class="skill-number">02</span>Quantitative Aptitude <span class="required">*</span></legend><div class="segmented">
+            <label><input type="radio" name="quantitativeAptitude" value="Beginner" required><span>Beginner</span></label><label><input type="radio" name="quantitativeAptitude" value="Intermediate"><span>Intermediate</span></label><label><input type="radio" name="quantitativeAptitude" value="Advanced"><span>Advanced</span></label>
+          </div><small class="error" data-error-for="quantitativeAptitude"></small></fieldset>
+          <fieldset class="skill-rating"><legend><span class="skill-number">03</span>Verbal Ability <span class="required">*</span></legend><div class="segmented">
+            <label><input type="radio" name="verbalAbility" value="Beginner" required><span>Beginner</span></label><label><input type="radio" name="verbalAbility" value="Intermediate"><span>Intermediate</span></label><label><input type="radio" name="verbalAbility" value="Advanced"><span>Advanced</span></label>
+          </div><small class="error" data-error-for="verbalAbility"></small></fieldset>
+          <fieldset class="skill-rating"><legend><span class="skill-number">04</span>Problem Solving <span class="required">*</span></legend><div class="segmented">
+            <label><input type="radio" name="problemSolving" value="Beginner" required><span>Beginner</span></label><label><input type="radio" name="problemSolving" value="Intermediate"><span>Intermediate</span></label><label><input type="radio" name="problemSolving" value="Advanced"><span>Advanced</span></label>
+          </div><small class="error" data-error-for="problemSolving"></small></fieldset>
+        </div>
+        <div class="actions"><button class="button secondary" type="button" data-back="3">← Back</button><button class="button primary" type="button" data-next="3">Save &amp; continue <span>→</span></button></div>
+      </section>
+
+      <section class="step-panel" data-panel="4">
+        <div class="panel-heading"><div class="step-icon">04</div><div><p class="eyebrow">CHOOSE YOUR DIRECTION</p><h2>Where do you want to grow?</h2><p>Pick the domain that makes you curious. You can always change it later.</p></div></div>
+        <fieldset class="domain-grid"><legend class="sr-only">Software domain <span class="required">*</span></legend>
+          <label class="domain-card"><input type="radio" name="domain" value="Frontend Development" required><span class="domain-emoji">◈</span><b>Frontend Development</b><small>Accessible, responsive user interfaces</small></label>
+          <label class="domain-card"><input type="radio" name="domain" value="Backend Development"><span class="domain-emoji">⚙</span><b>Backend Development</b><small>APIs, services and databases</small></label>
+          <label class="domain-card"><input type="radio" name="domain" value="Full Stack Development"><span class="domain-emoji">▣</span><b>Full Stack Development</b><small>Complete web applications</small></label>
+          <label class="domain-card"><input type="radio" name="domain" value="Artificial Intelligence"><span class="domain-emoji">✦</span><b>Artificial Intelligence</b><small>AI models and applications</small></label>
+          <label class="domain-card"><input type="radio" name="domain" value="Machine Learning"><span class="domain-emoji">◉</span><b>Machine Learning</b><small>Predictive models and deployment</small></label>
+          <label class="domain-card"><input type="radio" name="domain" value="Data Science"><span class="domain-emoji">◌</span><b>Data Science</b><small>Insights and predictive models</small></label>
+          <label class="domain-card"><input type="radio" name="domain" value="Data Analytics"><span class="domain-emoji">▥</span><b>Data Analytics</b><small>Reports, dashboards and decisions</small></label>
+          <label class="domain-card"><input type="radio" name="domain" value="Cybersecurity"><span class="domain-emoji">◆</span><b>Cybersecurity</b><small>Systems, networks and defense</small></label>
+          <label class="domain-card"><input type="radio" name="domain" value="Cloud Computing"><span class="domain-emoji">☁</span><b>Cloud Computing</b><small>Deploy and operate infrastructure</small></label>
+          <label class="domain-card"><input type="radio" name="domain" value="DevOps Engineering"><span class="domain-emoji">⇄</span><b>DevOps Engineering</b><small>Automate delivery and operations</small></label>
+          <label class="domain-card"><input type="radio" name="domain" value="Android Development"><span class="domain-emoji">▣</span><b>Android Development</b><small>Build Android applications</small></label>
+          <label class="domain-card"><input type="radio" name="domain" value="Software Testing / QA"><span class="domain-emoji">✓</span><b>Software Testing / QA</b><small>Quality, automation and testing</small></label>
+          <label class="domain-card"><input type="radio" name="domain" value="UI/UX Design"><span class="domain-emoji">✎</span><b>UI/UX Design</b><small>Useful and usable experiences</small></label>
+          <label class="domain-card"><input type="radio" name="domain" value="Blockchain Development"><span class="domain-emoji">⛓</span><b>Blockchain Development</b><small>Ledgers and smart contracts</small></label>
+          <label class="domain-card"><input type="radio" name="domain" value="Not Sure — Recommend for me"><span class="domain-emoji">?</span><b>Not Sure</b><small>Recommend a path for my profile</small></label>
+        </fieldset>
+        <small class="error" data-error-for="domain"></small>
+        <label class="field study-hours">Weekly study hours
+          <input id="weeklyHours" name="weeklyHours" type="range" min="4" max="30" step="1" value="8">
+          <span class="range-value"><output id="weeklyHoursValue">8</output> hours per week</span>
+        </label>
+        <div class="actions"><button class="button secondary" type="button" data-back="4">← Back</button><button class="button primary" type="button" data-next="4">Create my plan <span>→</span></button></div>
+      </section>
+    </form>
+
+    <section class="step-panel result-panel" data-panel="5">
+      <div class="result-hero"><div><p class="eyebrow">YOUR PERSONALIZED PLAN</p><h2 id="resultTitle">Your roadmap is ready.</h2><p id="resultSubtitle"></p></div><div class="result-badge">✦<span>Made for you</span></div></div>
+      <div class="result-grid">
+        <article class="result-card profile-card"><div class="card-title"><span class="card-icon">◒</span><h3>Profile summary</h3></div><div id="profileSummary" class="summary-list"></div><button class="text-button" type="button" id="editProfile">← Edit your answers</button></article>
+        <article class="result-card"><div class="card-title"><span class="card-icon">↗</span><h3>Estimated time required</h3></div><div class="time-estimate" id="timeEstimate"></div><p class="muted" id="timeNote"></p></article>
+      </div>
+      <article class="result-card resources-card"><div class="card-title"><span class="card-icon">▤</span><h3>Recommended learning resources</h3></div><div id="resources" class="resource-grid"></div></article>
+      <article class="result-card learning-hub-card"><div class="card-title"><span class="card-icon">✦</span><div><h3>Free career learning hub</h3><p class="card-subtitle">Beginner to job-ready resources, in the right order.</p></div></div><div id="hubGoal" class="hub-goal"></div><div id="hubResources" class="hub-resource-list"></div><div class="hub-order"><b>Learning order</b><span id="hubOrder"></span></div><p id="hubNote" class="hub-note"></p></article>
+      <article class="result-card roadmap-card"><div class="card-title"><span class="card-icon">➜</span><h3>Learning roadmap</h3><a href="https://roadmap.sh/" target="_blank" rel="noopener noreferrer" class="roadmap-link">View visual roadmaps ↗</a></div><div id="learningRoadmap" class="timeline"></div></article>
+      <article class="result-card project-card"><div class="card-title"><span class="card-icon">✓</span><h3>Project completion roadmap</h3></div><div class="project-timeline"><div><b>Week 1</b><span>Define &amp; research</span></div><div><b>Weeks 2–3</b><span>Build the foundation</span></div><div><b>Week 4</b><span>Test &amp; improve</span></div><div><b>Week 5</b><span>Document &amp; present</span></div></div></article>
+      <div class="result-actions"><button class="button secondary" type="button" id="startOver">Start over</button><button class="button primary" type="button" id="savePlan">Save my plan <span>↓</span></button></div>
+    </section>
+  </main>
+  <footer><span>Career Compass</span> · Built to help students take the next step.</footer>
+  <script src="script.js"></script>
+</body>
+</html>
